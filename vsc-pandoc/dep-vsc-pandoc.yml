@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: vsc-pandoc
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: vsc-pandoc
+    template:
+        metadata:
+            labels:
+                app: vsc-pandoc
+        spec:
+            containers:
+              - name: vsc-pandoc
+                image: vsc-pandoc:latest

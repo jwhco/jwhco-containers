@@ -15,6 +15,22 @@ RUN apt-get update -y && \
 
 # Install VS Code Server on Ubuntu
 RUN curl -fsSL https://code-server.dev/install.sh | sh
+
+# Install Pandoc and its dependencies
+RUN apt-get update -y && \
+    apt-get install -y \
+    pandoc \
+    texlive-full \
+    texlive-latex-extra \   
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Mermaid filters
+RUN npm install --global mermaid-filter
     
 # Command to run your application
 CMD ["/bin/sleep", "3650d"]
