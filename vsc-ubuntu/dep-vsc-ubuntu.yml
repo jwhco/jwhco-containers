@@ -13,5 +13,6 @@ spec:
                 app: vsc-ubuntu
         spec:
             containers:
-              - name: vsc-ubuntu
-                image: vsc-ubuntu:latest
+                - name: vsc-ubuntu
+                    image: vsc-ubuntu:latest
+                    imagePullPolicy: IfNotPresent
