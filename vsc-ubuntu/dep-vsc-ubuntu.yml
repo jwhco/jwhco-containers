@@ -14,5 +14,5 @@ spec:
         spec:
             containers:
                 - name: vsc-ubuntu
-                    image: vsc-ubuntu:latest
-                    imagePullPolicy: IfNotPresent
+                  image: hittjw/vsc-ubuntu:latest
+                  imagePullPolicy: IfNotPresent
