@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: vsc-ubuntu
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: vsc-ubuntu
+    template:
+        metadata:
+            labels:
+                app: vsc-ubuntu
+        spec:
+            containers:
+              - name: vsc-ubuntu
+                image: vsc-ubuntu:latest
