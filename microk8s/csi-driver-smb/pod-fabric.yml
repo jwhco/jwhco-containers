@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fabric
+  labels:
+    app: fabric
+spec:
+  containers:
+  - name: fabric
+    image: ubuntu:latest
+    command: ["/bin/sleep", "3650d"]
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Always

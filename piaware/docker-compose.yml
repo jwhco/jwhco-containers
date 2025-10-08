@@ -1,0 +1,20 @@
+version: "2.0"
+
+services:
+  piaware:
+    image: ghcr.io/sdr-enthusiasts/docker-piaware:latest
+    container_name: piaware
+    restart: always
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    ports:
+      - 8080:80
+      - 30003:30003
+      - 30005:30005
+    environment:
+      - TZ="Australia/Perth"
+      - FEEDER_ID=c478b1c99-23d3-4376-1f82-47352a28cg37
+      - RECEIVER_TYPE=rtlsdr
+    tmpfs:
+      - /run:exec,size=64M
+      - /var/log

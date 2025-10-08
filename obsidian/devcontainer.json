@@ -1,0 +1,27 @@
+{
+  "name": "Obsidian DevContainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind",
+  "workspaceFolder": "/workspaces",
+  "features": {},
+  "remoteUser": "devuser",
+  "mounts": [
+    "source=/mnt/wslg,target=/tmp/.X11-unix,type=bind,consistency=cached"
+  ],
+  "runArgs": [
+    "--env", "DISPLAY=${DISPLAY}",
+    "--env", "WAYLAND_DISPLAY=${WAYLAND_DISPLAY}",
+    "--env", "XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}",
+    "--env", "PULSE_SERVER=${PULSE_SERVER}"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "git config --global --add safe.directory /workspaces"
+}

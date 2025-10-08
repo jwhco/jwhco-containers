@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-smb-capsule
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi # This must be equal to or less than the PV's capacity
+  storageClassName: "" # Must be "" for static provisioning
+  volumeName: pv-smb-capsule

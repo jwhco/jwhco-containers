@@ -1,0 +1,41 @@
+# Base Ubuntu devcontainer image
+FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+
+# Avoid interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install basics + GUI deps
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash git curl wget unzip sudo \
+    libx11-6 libxkbcommon-x11-0 libnss3 \
+    libasound2t64 libasound2-plugins \
+    libxext6 libxdamage1 libxfixes3 libxcomposite1 libxi6 \
+    libxtst6 libglib2.0-0 libgl1-mesa-dri libdrm2 \
+    x11-apps pulseaudio \
+    && rm -rf /var/lib/apt/lists/*
+    
+# Install net-tools (for ifconfig)
+RUN apt-get update && apt-get install -y net-tools \    
+    && rm -rf /var/lib/apt/lists/*  
+
+# Install FUSE (for AppImage support)
+RUN apt-get update && apt-get install -y fuse \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install VS Code Server
+RUN curl -fsSL https://code-server.dev/install.sh | sh
+
+# Create non-root user
+RUN useradd -ms /bin/bash devuser && \
+    echo "devuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+USER devuser
+WORKDIR /workspaces
+
+# Install Obsidian (AppImage)
+RUN mkdir -p /home/devuser/obsidian && cd /home/devuser/obsidian && \
+    wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.12/Obsidian-1.9.12.AppImage -O obsidian.AppImage && \
+    chmod +x obsidian.AppImage
+
+# Default command: shell
+CMD [ "bash" ]
