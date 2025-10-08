@@ -1,5 +1,5 @@
 # Use the official Ubuntu base image
-FROM ubuntu:latest
+FROM ubuntu:25.04
 
 # Set the environment variable to avoid interaction during package configuration
 ENV DEBIAN_FRONTEND=noninteractive
