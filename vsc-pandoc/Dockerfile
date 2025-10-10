@@ -21,7 +21,6 @@ RUN apt-get update -y && \
     apt-get install -y \
     pandoc \
     texlive-full \
-    texlive-latex-extra \   
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js and npm
