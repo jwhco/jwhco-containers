@@ -24,9 +24,11 @@ RUN apt-get update -y && \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js and npm
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && \
+    apt-get install -y \
+    nodejs \
+    npm \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install Mermaid filters
 RUN npm install --global mermaid-filter
