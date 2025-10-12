@@ -23,9 +23,11 @@ spec:
           protocol: UDP
         - containerPort: 53
           protocol: TCP
-        - containerPort: 80
+        - containerPort: 9080
+          hostPort: 80 
           protocol: TCP
-        - containerPort: 443
+        - containerPort: 9443
+          hostPort: 443
           protocol: TCP
         env:
         - name: TZ
