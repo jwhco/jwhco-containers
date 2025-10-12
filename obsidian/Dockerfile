@@ -1,5 +1,5 @@
 # Base Ubuntu devcontainer image
-FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+FROM ubuntu:25.04
 
 # Avoid interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
