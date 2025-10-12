@@ -5,13 +5,11 @@ metadata:
 spec:
   capacity:
     storage: 1Gi
-  nfs:
-    path: /pv-pihole
-    server: 172.17.0.2
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  mountOptions:
-    - hard
-    - nfsvers=4.1
+  storageClassName: microk8s-hostpath
   volumeMode: Filesystem
+  hostPath:
+    path: /mnt/pv-pihole
+    type: DirectoryOrCreate
