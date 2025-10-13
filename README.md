@@ -1,5 +1,7 @@
 # Container Registry for JWHCO MicroK8S
 
+**THIS IS A PUBLIC REPO -- DO NOT STORE PASSWORDS**
+
 ## Reference
 
 -   Working with the Container registry. https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
@@ -26,4 +28,5 @@ kubectl rollout status deployment/vsc-ubuntu
 kubectl get pods -o wide
 ```
 
-/EOF/
+Copyright &copy; 2023-2025 [JWH Consolidated LLC](https://www.jwhco.com/), All rights reserved.
+

@@ -1,0 +1,1 @@
+- Default `admin` password changes post installation. Also place environment behind firewall.

@@ -1,0 +1,1 @@
+- The working `fabric` Pod is functional. However, this YAML is a cut-n-paste backup. Needs cleaned up.
