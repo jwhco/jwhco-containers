@@ -2,6 +2,12 @@
 
 **THIS IS A PUBLIC REPO -- DO NOT STORE PASSWORDS**
 
+## Purpose
+
+- Make available configurations that may shared across projects. 
+- As a demonstration portfolio. Models and templates, not client work.
+- A practice of risk management. Make sure repo is sanitized.
+
 ## Reference
 
 -   Working with the Container registry. https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
@@ -27,6 +33,11 @@ kubectl apply -f dep-vsc-ubuntu.yml
 kubectl rollout status deployment/vsc-ubuntu
 kubectl get pods -o wide
 ```
+
+## Wishlist
+
+- [Graphana](https://grafana.com/), Dashboarding and reporting platform. Visualization.
+- [N8N](https://n8n.io/). Workflow automation and engagement with component level nodes. 
 
 Copyright &copy; 2023-2025 [JWH Consolidated LLC](https://www.jwhco.com/), All rights reserved.
 
