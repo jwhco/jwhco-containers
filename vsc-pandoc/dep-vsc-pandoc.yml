@@ -16,3 +16,6 @@ spec:
               - name: vsc-pandoc
                 image: hittjw/vsc-pandoc:latest
                 imagePullPolicy: IfNotPresent
+                volumeMounts:
+                  - mountPath: /capsule
+                    name: pvc-smb-capsule

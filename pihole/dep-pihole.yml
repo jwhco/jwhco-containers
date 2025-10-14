@@ -13,7 +13,7 @@ spec:
       labels:
         app: pihole
     spec:
-      hostNetwork: true
+      hostNetwork: false
       containers:
       - name: pihole
         image: pihole/pihole:latest
@@ -23,11 +23,11 @@ spec:
           protocol: UDP
         - containerPort: 53
           protocol: TCP
-        - containerPort: 9080
-          hostPort: 80 
+        - containerPort: 80
+          hostPort: 9080 
           protocol: TCP
-        - containerPort: 9443
-          hostPort: 443
+        - containerPort: 443
+          hostPort: 9443
           protocol: TCP
         env:
         - name: TZ

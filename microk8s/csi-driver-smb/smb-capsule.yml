@@ -11,8 +11,11 @@ parameters:
   source: //192.168.1.20/Capsule
 reclaimPolicy: Delete
 mountOptions:
+  - guest
   - dir_mode=0777
   - file_mode=0777
   - uid=1001
   - gid=1001
+  - vers=1.0
 volumeBindingMode: Immediate
+allowVolumeExpansion: true

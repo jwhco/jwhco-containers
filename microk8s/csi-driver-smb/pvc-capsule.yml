@@ -8,5 +8,5 @@ spec:
   resources:
     requests:
       storage: 100Gi # This must be equal to or less than the PV's capacity
-  storageClassName: "" # Must be "" for static provisioning
+  storageClassName: smb-capsule
   volumeName: pv-smb-capsule
