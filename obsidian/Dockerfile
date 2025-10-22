@@ -26,16 +26,16 @@ RUN apt-get update && apt-get install -y fuse \
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # Create non-root user
-RUN useradd -ms /bin/bash devuser && \
-    echo "devuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN useradd -ms /bin/bash obsidian && \
+    echo "obsidian ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER devuser
 WORKDIR /workspaces
 
-# Install Obsidian (AppImage)
-RUN mkdir -p /home/devuser/obsidian && cd /home/devuser/obsidian && \
-    wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.12/Obsidian-1.9.12.AppImage -O obsidian.AppImage && \
-    chmod +x obsidian.AppImage
+# Install Obsidian (DEB)
+RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/obsidian_1.9.14_amd64.deb -O /home/obsidian/obsidian.deb && \
+    sudo dpkg -i /home/obsidian/obsidian.deb || sudo apt-get install -f -y
+# obsidian --no-sandbox &
 
 # Default command: shell
 CMD [ "bash" ]
