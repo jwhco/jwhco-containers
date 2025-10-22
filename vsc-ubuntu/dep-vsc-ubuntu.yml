@@ -16,3 +16,10 @@ spec:
                 - name: vsc-ubuntu
                   image: hittjw/vsc-ubuntu:latest
                   imagePullPolicy: IfNotPresent
+                  volumeMounts:
+                    - name: pv-home
+                      mountPath: /home
+            volumes:
+                - name: pv-home
+                  persistentVolumeClaim:
+                    claimName: pv-home

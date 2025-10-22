@@ -4,10 +4,6 @@ metadata:
   name: smb-capsule
 provisioner: smb.csi.k8s.io
 parameters:
-  csi.storage.k8s.io/node-stage-secret-name: smbcreds
-  csi.storage.k8s.io/node-stage-secret-namespace: default
-  csi.storage.k8s.io/provisioner-secret-name: smbcreds
-  csi.storage.k8s.io/provisioner-secret-namespace: default
   source: //192.168.1.20/Capsule
 reclaimPolicy: Delete
 mountOptions:

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-home
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: microk8s-hostpath
+  volumeMode: Filesystem
+  hostPath:
+    path: /mnt/pv-home
+    type: DirectoryOrCreate

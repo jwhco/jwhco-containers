@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
     
 # Install net-tools (for ifconfig)
-RUN apt-get update && apt-get install -y net-tools \    
+RUN apt-get update && apt-get install -y net-tools \
     && rm -rf /var/lib/apt/lists/*  
 
 # Install FUSE (for AppImage support)
@@ -25,12 +25,12 @@ RUN apt-get update && apt-get install -y fuse \
 # Install VS Code Server
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
-# Create non-root user
+# Create non-root user 1001:1001
 RUN useradd -ms /bin/bash obsidian && \
     echo "obsidian ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-USER devuser
-WORKDIR /workspaces
+USER obsidian
+WORKDIR /home/obsidian
 
 # Install Obsidian (DEB)
 RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/obsidian_1.9.14_amd64.deb -O /home/obsidian/obsidian.deb && \
