@@ -6,10 +6,13 @@ spec:
   containers:
     - name: busybox-container
       image: busybox
-      command: ["/bin/sh", "-c", "echo 'TEST Volume is Writable' > /mnt/capsule/test.txt && sleep 3600"]
+      command:
+        - "/bin/sleep"
+        - "365d"
       volumeMounts:
         - name: smb-capsule
-          mountPath: /mnt/capsule
+          mountPath: "/mnt/capsule"
+          readOnly: false
   volumes:
     - name: smb-capsule
       persistentVolumeClaim:
