@@ -9,7 +9,7 @@ spec:
       command: ["/bin/sh", "-c", "echo 'TEST Volume is Writable' > /mnt/capsule/test.txt && sleep 3600"]
       volumeMounts:
         - name: smb-capsule
-          mountPath: "/mnt/capsule"
+          mountPath: /mnt/capsule
   volumes:
     - name: smb-capsule
       persistentVolumeClaim:
