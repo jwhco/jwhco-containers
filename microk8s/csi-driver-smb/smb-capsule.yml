@@ -4,7 +4,7 @@ metadata:
   name: smb-capsule
 provisioner: smb.csi.k8s.io
 parameters:
-  source: //192.168.1.20/Capsule
+  source: //192.168.3.20/Capsule
 reclaimPolicy: Delete
 mountOptions:
   - guest

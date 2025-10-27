@@ -3,10 +3,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-smb-capsule
 spec:
+  volumeName: pv-smb-capsule 
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 100Gi
   storageClassName: smb-capsule
-  volumeName: pv-smb-capsule
