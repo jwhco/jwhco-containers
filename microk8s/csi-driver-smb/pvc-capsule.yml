@@ -7,6 +7,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 100Gi # This must be equal to or less than the PV's capacity
+      storage: 100Gi
   storageClassName: smb-capsule
   volumeName: pv-smb-capsule

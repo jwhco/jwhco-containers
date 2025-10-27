@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: smb-test-pod
+  name: smb-capsule-test
 spec:
   containers:
     - name: busybox-container
       image: busybox
-      command: ["/bin/sh", "-c", "echo 'Hello from the SMB share!' > /mnt/smb/test.txt && sleep 3600"]
+      command: ["/bin/sh", "-c", "echo 'TEST Volume is Writable' > /mnt/capsule/test.txt && sleep 3600"]
       volumeMounts:
-        - name: smb-volume
+        - name: smb-capsule
           mountPath: "/mnt/capsule"
   volumes:
-    - name: smb-volume
+    - name: smb-capsule
       persistentVolumeClaim:
         claimName: pvc-smb-capsule
