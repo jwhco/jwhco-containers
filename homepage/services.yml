@@ -7,5 +7,10 @@
 - Technology: 
   - Pi-Hole:
       description: Needs Load Balancing
-      href: https://pi-hole.net/
+      href: https://192.168.3.7:30443/admin/
+      widget: 
+        type: pihole
+        url: https://192.168.3.7:30443
+        version: 6
+        key: mydQcYCd9rlG
       

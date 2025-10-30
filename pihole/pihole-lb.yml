@@ -13,7 +13,19 @@ spec:
     port: 53
     protocol: UDP
     targetPort: 53
+    nodePort: 30053
   - name: dns-tcp
     port: 53
     protocol: TCP
     targetPort: 53
+    nodePort: 30053
+  - name: 443-tcp
+    port: 443
+    protocol: TCP
+    targetPort: 443
+    nodePort: 30443
+  - name: 80-tcp
+    port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30080
