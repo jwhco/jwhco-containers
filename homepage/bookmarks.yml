@@ -15,3 +15,10 @@
   - HubSpot:
     - abbr: HS
       href: https://www.hubspot.com/
+- Technology:
+  - Unifi Site Manager:
+    - abbr: UN
+      href: https://unifi.ui.com/
+  - StarLink:
+    - abbr: SL
+      href: https://starlink.com/
