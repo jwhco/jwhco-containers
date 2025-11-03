@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: obsidian-vnc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: obsidian-vnc
+  template:
+    metadata:
+      labels:
+        app: obsidian-vnc
+    spec:
+      containers:
+      - name: obsidian-container
+        image: ubuntu:latest
+        command: ["/bin/bash", "-c", "sleep 3600"]  # Keep the container alive
+        ports:
+        - containerPort: 5901  # VNC default port
+        volumeMounts:
+        - name: obsidian-data
+          mountPath: /root/.config/obsidian
+      volumes:
+      - name: obsidian-data
+        emptyDir: {}  # or use a PersistentVolumeClaim for persistence
