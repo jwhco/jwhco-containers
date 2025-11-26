@@ -5,16 +5,17 @@ metadata:
 provisioner: smb.csi.k8s.io
 parameters:
   source: //192.168.3.20/Capsule
+  csi.storage.k8s.io/provisioner-secret-name: smbcreds
+  csi.storage.k8s.io/provisioner-secret-namespace: default
+  csi.storage.k8s.io/node-stage-secret-name: smbcreds
+  csi.storage.k8s.io/node-stage-secret-namespace: default
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 allowVolumeExpansion: true
 mountOptions:
-  - guest
   - dir_mode=0777
   - file_mode=0777
   - uid=1001
   - gid=1001
   - vers=1.0
   - noserverino
-volumeBindingMode: Immediate
-allowVolumeExpansion: true
