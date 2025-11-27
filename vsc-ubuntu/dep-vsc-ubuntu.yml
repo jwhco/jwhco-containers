@@ -12,6 +12,8 @@ spec:
             labels:
                 app: vsc-ubuntu
         spec:
+            nodeSelector:
+                kubernetes.io/arch: amd64
             containers:
                 - name: vsc-ubuntu
                   image: hittjw/vsc-ubuntu:latest
