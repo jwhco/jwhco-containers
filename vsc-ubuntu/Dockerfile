@@ -1,12 +1,12 @@
 # Use the official Ubuntu base image
-FROM ubuntu:25.04
+FROM ubuntu:25.10
 
 # Set the environment variable to avoid interaction during package configuration
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update the package listing and install desired packages
-RUN apt-get update -y && \
-    apt-get install -y \
+RUN apt update -y && \
+    apt install -y \
     git curl \
     vim cmake \
     && rm -rf /var/lib/apt/lists/*
