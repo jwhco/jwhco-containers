@@ -34,6 +34,10 @@ kubectl rollout status deployment/vsc-ubuntu
 kubectl get pods -o wide
 ```
 
+- When possible, clone GitHub into `/workspace/` to be persitent about local copies. This will help reloads be faster because directory can be refreshed.
+- The `/home/` directory for where users live. It's okay to clone here, however, this is primary for running scripts and may not have as much space as *workspace*.
+
+
 ## Wishlist
 
 - [Graphana](https://grafana.com/), Dashboarding and reporting platform. Visualization.

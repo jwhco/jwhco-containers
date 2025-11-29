@@ -21,7 +21,12 @@ spec:
                   volumeMounts:
                     - name: pv-home
                       mountPath: /home
+                    - name: pv-workspace
+                      mountPath: /workspace
             volumes:
                 - name: pv-home
                   persistentVolumeClaim:
                     claimName: pv-home
+                - name: pv-workspace
+                  persistentVolumeClaim:
+                    claimName: pv-workspace 

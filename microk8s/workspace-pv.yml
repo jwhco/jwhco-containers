@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-workspace
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: microk8s-hostpath
+  volumeMode: Filesystem
+  hostPath:
+    path: /mnt/pv-workspace
+    type: DirectoryOrCreate
