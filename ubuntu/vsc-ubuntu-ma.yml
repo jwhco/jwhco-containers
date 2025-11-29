@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: vsc-ubuntu-ma
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: vsc-ubuntu-ma
+    template:
+        metadata:
+            labels:
+                app: vsc-ubuntu-ma
+        spec:
+            containers:
+              - name: vsc-ubuntu-ma
+                image: hittjw/vsc-ubuntu-ma:latest
+                imagePullPolicy: IfNotPresent
+                volumeMounts:
+                  - mountPath: /capsule
+                    name: pvc-smb-capsule
+                  - mountPath: /home
+                    name: pv-home
+                    
+            volumes:
+                - name: pv-home
+                  persistentVolumeClaim:
+                    claimName: pv-home
