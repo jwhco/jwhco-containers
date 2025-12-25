@@ -18,6 +18,11 @@ spec:
                 - name: vsc-ubuntu
                   image: hittjw/vsc-ubuntu:latest
                   imagePullPolicy: IfNotPresent
+                  resources:
+                    requests:
+                      cpu: "1"
+                    limits:
+                      cpu: "4"
                   volumeMounts:
                     - name: pv-home
                       mountPath: /home
