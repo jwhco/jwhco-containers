@@ -14,6 +14,17 @@ RUN apt update -y && \
 # Install VS Code Server on Ubuntu
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
+# Install Python Environment
+RUN apt update && \
+    apt install python3-venv python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+
+# For Better X11 Support
+RUN apt update && \
+    apt install libxcb-cursor0 \
+    && rm -rf /var/lib/apt/lists/*
+
 USER ubuntu
 WORKDIR /home/ubuntu
     
