@@ -15,6 +15,9 @@ spec:
             containers:
               - name: vsc-pandoc
                 image: hittjw/vsc-pandoc:latest
+                  env:
+                    - name: TZ
+                      value: "America/New_York"
                 imagePullPolicy: IfNotPresent
                 volumeMounts:
                   - mountPath: /capsule

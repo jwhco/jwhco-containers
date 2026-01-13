@@ -17,6 +17,9 @@ spec:
             containers:
                 - name: vsc-ubuntu
                   image: hittjw/vsc-ubuntu:latest
+                  env:
+                    - name: TZ
+                      value: "America/New_York"
                   imagePullPolicy: IfNotPresent
                   resources:
                     requests:

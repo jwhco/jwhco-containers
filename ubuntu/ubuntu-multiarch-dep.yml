@@ -21,6 +21,9 @@ spec:
       containers:
       - name: ubuntu-tools
         image: ubuntu:22.04
+        env:
+          - name: TZ
+            value: "America/New_York"
         imagePullPolicy: Always
         command: ["/bin/bash"]
         args:

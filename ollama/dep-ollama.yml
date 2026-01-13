@@ -17,6 +17,9 @@ spec:
       containers:
         - name: ollama
           image: ollama/ollama:latest
+          env:
+            - name: TZ
+              value: "America/New_York"
           ports:
             - containerPort: 11434
               protocol: TCP
