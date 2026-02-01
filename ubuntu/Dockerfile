@@ -3,8 +3,8 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Basic VsCode Dependencies
-RUN apt-get update && \
-	apt-get install -y git curl vim make \
+RUN apt update && \
+	apt install -y git curl vim make \
 		python3 default-jdk \
 		&& rm -rf /var/lib/apt/lists/*
 
@@ -12,15 +12,15 @@ RUN apt-get update && \
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # Install Pandoc and its dependencies
-RUN apt-get update -y && \
-    apt-get install -y \
+RUN apt update -y && \
+    apt install -y \
     pandoc \
     texlive-full \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js and npm
-RUN apt-get update -y && \
-    apt-get install -y \
+RUN apt update -y && \
+    apt install -y \
     nodejs \
     npm \
     && rm -rf /var/lib/apt/lists/*
