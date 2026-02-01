@@ -26,17 +26,15 @@ spec:
             - "-c"
             - |
               echo "Updating packages..."
-              apt-get update -y
-              apt-get install -y git python3 default-jdk make
-              echo "Starting sleep loop to keep container running..."
+              apt update -y
+              apt install -y git python3 default-jdk make
+              echo "Keep container running..."
               tail -f /dev/null
           resources:
             limits:
               cpu: "4"
-              memory: "512Mi"
             requests:
               cpu: "1"
-              memory: "128Mi"
           volumeMounts:
             - name: pv-home
               mountPath: /home
