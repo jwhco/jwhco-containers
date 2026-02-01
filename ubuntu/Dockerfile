@@ -15,7 +15,7 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh
 RUN apt update -y && \
     apt install -y \
     pandoc \
-    texlive-full \
+    texlive-base \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js and npm
