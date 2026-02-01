@@ -14,30 +14,38 @@ spec:
       labels:
         app: ubuntu-multiarch
     spec:
-      # Allow any architecture (amd64 or arm64)
-      # Uncomment below if you want to *restrict*
-      # nodeSelector:
-      #   kubernetes.io/arch: arm64
       containers:
-      - name: ubuntu-tools
-        image: ubuntu:22.04
-        env:
-          - name: TZ
-            value: "America/New_York"
-        imagePullPolicy: Always
-        command: ["/bin/bash"]
-        args:
-          - "-c"
-          - |
-            echo "Updating packages..."
-            apt-get update -y
-            apt-get install -y git python3 default-jdk make
-            echo "Starting sleep loop to keep container running..."
-            tail -f /dev/null
-        resources:
-          limits:
-            cpu: "500m"
-            memory: "512Mi"
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
+        - name: ubuntu-tools
+          image: ubuntu:22.04
+          env:
+            - name: TZ
+              value: "America/New_York"
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/bash"]
+          args:
+            - "-c"
+            - |
+              echo "Updating packages..."
+              apt-get update -y
+              apt-get install -y git python3 default-jdk make
+              echo "Starting sleep loop to keep container running..."
+              tail -f /dev/null
+          resources:
+            limits:
+              cpu: "4"
+              memory: "512Mi"
+            requests:
+              cpu: "1"
+              memory: "128Mi"
+          volumeMounts:
+            - name: pv-home
+              mountPath: /home
+            - name: pv-workspace
+              mountPath: /workspace
+      volumes:
+          - name: pv-home
+            persistentVolumeClaim:
+              claimName: pv-home
+          - name: pv-workspace
+            persistentVolumeClaim:
+              claimName: pv-workspace 
