@@ -19,8 +19,8 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh
 # Install Pandoc and its dependencies
 RUN apt update -y && \
     apt install -y \
-    pandoc \
-    texlive-full \
+    pandoc imagemagick \
+    texlive \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js and npm
