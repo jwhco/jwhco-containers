@@ -1,5 +1,5 @@
-apt-get update && \
-apt-get install -y xfce4 xfce4-goodies tigervnc-standalone-server && \
+apt update && \
+apt install -y xfce4 xfce4-goodies tigervnc-standalone-server && \
 # Replace with the command to install Obsidian
 snap install obsidian --classic && \
 

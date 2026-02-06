@@ -5,8 +5,8 @@ FROM ubuntu:25.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update the package listing and install desired packages
-RUN apt-get update -y && \
-    apt-get install -y \
+RUN apt update -y && \
+    apt install -y \
     git \
     curl \
     vim \
@@ -17,15 +17,15 @@ RUN apt-get update -y && \
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # Install Pandoc and its dependencies
-RUN apt-get update -y && \
-    apt-get install -y \
+RUN apt update -y && \
+    apt install -y \
     pandoc \
     texlive-full \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js and npm
-RUN apt-get update -y && \
-    apt-get install -y \
+RUN apt update -y && \
+    apt install -y \
     nodejs \
     npm \
     && rm -rf /var/lib/apt/lists/*

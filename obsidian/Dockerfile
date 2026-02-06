@@ -5,7 +5,7 @@ FROM ubuntu:25.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install basics + GUI deps
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt update && apt install -y --no-install-recommends \
     bash git curl wget unzip sudo \
     libx11-6 libxkbcommon-x11-0 libnss3 \
     libasound2t64 libasound2-plugins \
@@ -15,11 +15,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
     
 # Install net-tools (for ifconfig)
-RUN apt-get update && apt-get install -y net-tools \
+RUN apt update && apt install -y net-tools \
     && rm -rf /var/lib/apt/lists/*  
 
 # Install FUSE (for AppImage support)
-RUN apt-get update && apt-get install -y fuse \
+RUN apt update && apt install -y fuse \
     && rm -rf /var/lib/apt/lists/*
 
 # Install VS Code Server
@@ -34,7 +34,7 @@ WORKDIR /home/obsidian
 
 # Install Obsidian (DEB)
 RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.9.14/obsidian_1.9.14_amd64.deb -O /home/obsidian/obsidian.deb && \
-    sudo dpkg -i /home/obsidian/obsidian.deb || sudo apt-get install -f -y
+    sudo dpkg -i /home/obsidian/obsidian.deb || sudo apt install -f -y
 # obsidian --no-sandbox &
 
 # Default command: shell
