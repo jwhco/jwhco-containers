@@ -21,6 +21,11 @@ spec:
         volumeMounts:
         - name: obsidian-data
           mountPath: /root/.config/obsidian
+        - name: dbus-socket
+          mountPath: /var/run/dbus/system_bus_socket
       volumes:
       - name: obsidian-data
         emptyDir: {}  # or use a PersistentVolumeClaim for persistence
+      - name: dbus-socket
+        hostPath:
+          path: /var/run/dbus/system_bus_socket

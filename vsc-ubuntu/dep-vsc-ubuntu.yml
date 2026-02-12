@@ -31,6 +31,8 @@ spec:
                       mountPath: /home
                     - name: pv-workspace
                       mountPath: /workspace
+                    - name: dbus-socket
+                      mountPath: /var/run/dbus/system_bus_socket
             volumes:
                 - name: pv-home
                   persistentVolumeClaim:
@@ -38,3 +40,6 @@ spec:
                 - name: pv-workspace
                   persistentVolumeClaim:
                     claimName: pv-workspace 
+                - name: dbus-socket
+                  hostPath:
+                    path: /var/run/dbus/system_bus_socket
